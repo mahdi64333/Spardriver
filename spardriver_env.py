@@ -40,7 +40,7 @@ class Env:
             pygame.display.set_icon(pygame.image.load('icon.png'))
             self.background = PygameObject(0, -1800, 10, pygame.image.load('background.png'))
             self.score_font = pygame.font.Font('freesansbold.ttf', 16)
-        self.clock = pygame.time.Clock()
+            self.clock = pygame.time.Clock()
         self.score = 0
         self.FPS = fps
         self.dt = 1
