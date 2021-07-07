@@ -191,12 +191,12 @@ class Env:
 
         if self.done:
             _reward = -50
-        elif action == 0:
-            _reward = 5
         elif danger > self.check_danger():
             _reward = 10
         elif danger < self.check_danger():
             _reward = -5
+        elif action == 0:
+            _reward = 5
 
         return np.copy(self.observation_space), _reward, self.done
 
