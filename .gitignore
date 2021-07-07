@@ -1,0 +1,6 @@
+base_game.py
+background.xcf
+venv/
+__pycache__/
+base_cars/
+.idea/
