@@ -38,9 +38,9 @@ class Env:
             self.screen = pygame.display.set_mode((800, 600))
             pygame.display.set_caption('Spardriver')
             pygame.display.set_icon(pygame.image.load('icon.png'))
-            self.background = PygameObject(0, -1800, 10, pygame.image.load('background.png'))
             self.score_font = pygame.font.Font('freesansbold.ttf', 16)
             self.clock = pygame.time.Clock()
+        self.background = PygameObject(0, -1800, 10, pygame.image.load('background.png'))
         self.score = 0
         self.FPS = fps
         self.dt = 1
