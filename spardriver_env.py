@@ -32,17 +32,18 @@ class PygameObject:
 class Env:
     def __init__(self, visual=False, fps=1, human=False):
         # base game stuff
-        pygame.init()
+        self.visual = visual
+        if self.visual:
+            pygame.init()
+            self.screen = pygame.display.set_mode((800, 600))
+            pygame.display.set_caption('Spardriver')
+            pygame.display.set_icon(pygame.image.load('icon.png'))
+            self.background = PygameObject(0, -1800, 10, pygame.image.load('background.png'))
+            self.score_font = pygame.font.Font('freesansbold.ttf', 16)
         self.clock = pygame.time.Clock()
         self.score = 0
         self.FPS = fps
         self.dt = 1
-        self.screen = pygame.display.set_mode((800, 600))
-        pygame.display.set_caption('Spardriver')
-        pygame.display.set_icon(pygame.image.load('icon.png'))
-        self.background = PygameObject(0, -1800, 10, pygame.image.load('background.png'))
-        self.score_font = pygame.font.Font('freesansbold.ttf', 16)
-        self.visual = visual
         self.human = human
         self.player = PygameObject(320, 470, 9, pygame.image.load('car.png'), True, 2)
         self.observation_space = np.zeros(19)
