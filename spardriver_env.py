@@ -33,8 +33,8 @@ class Env:
     def __init__(self, visual=False, fps=1, human=False):
         # base game stuff
         self.visual = visual
+        pygame.init()
         if self.visual:
-            pygame.init()
             self.screen = pygame.display.set_mode((800, 600))
             pygame.display.set_caption('Spardriver')
             pygame.display.set_icon(pygame.image.load('icon.png'))
@@ -189,7 +189,7 @@ class Env:
 
         _reward = 1
 
-        if done:
+        if self.done:
             _reward = -50
         elif action == 0:
             _reward = 5
