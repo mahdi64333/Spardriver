@@ -83,6 +83,15 @@ class Env:
         self.prev_time = time()
         return np.copy(self.observation_space)
 
+    def check_danger(self):
+        danger = 0
+        for car in self.other_cars:
+            if car.lane == self.player.lane:
+                if 150 <= car.y < self.player.y:
+                    danger += 1
+
+        return danger
+
     def world_change(self):
         self.background.y += self.background.speed * self.dt * self.FPS
         for car in self.other_cars:
@@ -127,6 +136,7 @@ class Env:
                     running = False
 
     def step(self, action=None):
+        danger = self.check_danger()
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 self.done = True
@@ -175,7 +185,17 @@ class Env:
             self.game_over()
 
         self.update_observation_space()
-        _reward = 1 if not self.done else -50
+
+        _reward = 1
+
+        if done:
+            _reward = -50
+        elif action == 0:
+            _reward = 5
+        elif danger > self.check_danger():
+            _reward = 10
+        elif danger < self.check_danger():
+            _reward = -5
 
         return np.copy(self.observation_space), _reward, self.done
 
