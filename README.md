@@ -6,3 +6,4 @@ You can run the ``spardriver_env.py`` and play the game by arrow keys without th
 
 It is possible to train the agent based on pre existing network so the previous data will not be thrown away.
 
+The ``dqn_model.h5`` file has a network trained for 10 hours and its performance in the test area is relatively well. Also there is a backup of that file.
