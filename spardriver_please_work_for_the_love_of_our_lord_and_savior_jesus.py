@@ -16,10 +16,9 @@ if mode == '1':
         print('model loaded.')
         agent.load_model()
 else:
+    env = spardriver_env.Env(True, 60)
     agent.load_model()
     agent.epsilon = 0
-    env.visual = True
-    env.FPS = 60
 i = 0
 while True:
     done = False
