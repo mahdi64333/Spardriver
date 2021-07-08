@@ -194,6 +194,8 @@ class Env:
         elif danger > self.check_danger():
             _reward = 10
         elif danger < self.check_danger():
+            _reward = -12
+        elif danger == 1:
             _reward = -5
         elif action == 0:
             _reward = 5
