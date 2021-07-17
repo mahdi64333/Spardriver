@@ -1,6 +1,6 @@
 # Spardriver
 
-A basic Deep Reinforcement Learning agent and environment for driving in a 4 lane highway made with keras.
+A basic Deep Reinforcement Learning agent and environment for driving in a 4 lane highway made with keras and Pygame.
 
 You can run the ``spardriver_env.py`` and play the game by arrow keys without the agent to get a sense of what's going on.
 
